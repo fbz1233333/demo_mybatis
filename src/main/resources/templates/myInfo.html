@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>index</title>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <script th:src="@{/js/jquery-3.4.1.min.js}" type="text/javascript" src="../static/js/jquery-3.4.1.min.js" ></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <style>
+        .myCon{
+            padding-top: 70px;
+        }
+        .myBot{
+            padding-bottom: 200px;
+        }
+        .myCol>ul>li>a{
+            font-size: 20px;
+        }
+        .loginForm{
+            padding-top: 6px;
+        }
+        .hot.active{
+            background: green;
+
+        }
+        .over.active{
+            background-color: coral;
+        }
+        .myList{
+            padding-top: 20px;
+        }
+        .myHis{
+            padding-top: 20px;
+
+        }
+        .myHis a{
+            font-size: 30px;
+        }
+        .myInfo li{
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="nav navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">fbzTest</a>
+        </div>
+        <div class="navbar-collapse collapse myCol">
+            <ul class="navbar-nav nav">
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+            </ul>
+            <ul>
+                <li class="navbar-collapse collapse pull-right">
+                    <form class="form-inline pull-right loginForm" method="post" action="#">
+                        <input type="text" class="form-control" placeholder="UserName">
+                        <input type="text" class="form-control" placeholder="UserPass">
+                        <button type="button" class="btn btn-success" >Login</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+    </div>
+
+
+</nav>
+
+
+
+
+<div class="container myCon">
+    <div class="media">
+        <div class="media-left">
+            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" style="width:200px;height: 250px"
+            >
+        </div>
+        <div class="media-body">
+            <ul class="myInfo">
+                <li>用户id：<small th:text="${user.uId}"></small> </li>
+                <li>昵称:<small th:text="${user.uName}"></small></li>
+                <li>年龄:<small th:text="${user.uAge}"></small></li>
+                <li>
+                    <a th:href="@{mangaInfo}"><button type="button" class="btn btn-success btn-lg"   th:text="上传漫画"></button></a>
+                    <a th:href="@{manga/getMine}"><button type="button" class="btn btn-warning btn-lg"   th:text="我的漫画"></button></a>
+                </li>
+                
+            </ul>
+
+        </div>
+
+
+    </div>
+    <hr>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>我上传</h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="media">
+                        <div class="media-body">
+                            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                        </div>
+                        <div class="media-bottom text-center">
+                            <p style="font-size: 25px">fbzs world</p>
+                        </div>
+                    </div>
+                </div><div class="col-sm-3">
+                <div class="media">
+                    <div class="media-body">
+                        <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                    </div>
+                    <div class="media-bottom text-center">
+                        <p style="font-size: 25px">fbzs world</p>
+                    </div>
+                </div>
+            </div><div class="col-sm-3">
+                <div class="media">
+                    <div class="media-body">
+                        <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                    </div>
+                    <div class="media-bottom text-center">
+                        <p style="font-size: 25px">fbzs world</p>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-sm-3">
+                    <div class="media">
+                        <div class="media-body">
+                            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                        </div>
+                        <div class="media-bottom text-center">
+                            <p style="font-size: 25px">fbzs world</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>我看过</h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="MangaOne.html">
+                        <div class="media">
+                            <div class="media-body">
+                                <img src="../static/img/9QY46WN]AF[%XR$ZO@YG(27.png" th:src="@{/img/9QY46WN]AF[%XR$ZO@YG(27.png}" class="media-object" height="200">
+                            </div>
+                            <div class="media-bottom text-center">
+                                <p style="font-size: 25px">fbzs world</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <div class="media">
+                        <div class="media-body">
+                            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                        </div>
+                        <div class="media-bottom text-center">
+                            <p style="font-size: 25px">fbzs world</p>
+                        </div>
+                    </div>
+                </div><div class="col-sm-3">
+                <div class="media">
+                    <div class="media-body">
+                        <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                    </div>
+                    <div class="media-bottom text-center">
+                        <p style="font-size: 25px">fbzs world</p>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-sm-3">
+                    <div class="media">
+                        <div class="media-body">
+                            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                        </div>
+                        <div class="media-bottom text-center">
+                            <p style="font-size: 25px">fbzs world</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>我收藏</h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="media">
+                        <div class="media-body">
+                            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                        </div>
+                        <div class="media-bottom text-center">
+                            <p style="font-size: 25px">fbzs world</p>
+                        </div>
+                    </div>
+                </div><div class="col-sm-3">
+                <div class="media">
+                    <div class="media-body">
+                        <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                    </div>
+                    <div class="media-bottom text-center">
+                        <p style="font-size: 25px">fbzs world</p>
+                    </div>
+                </div>
+            </div><div class="col-sm-3">
+                <div class="media">
+                    <div class="media-body">
+                        <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                    </div>
+                    <div class="media-bottom text-center">
+                        <p style="font-size: 25px">fbzs world</p>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-sm-3">
+                    <div class="media">
+                        <div class="media-body">
+                            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" height="200">
+                        </div>
+                        <div class="media-bottom text-center">
+                            <p style="font-size: 25px">fbzs world</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+<nav class="nav navbar-default navbar-fixed-bottom">
+    <div class="container">
+
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">fbzTest</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav nav">
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+</body>
+<script>
+    var date=new Date();
+    console.log(date.getFullYear());
+    console.log(date.getMonth()+1) ;
+    console.log(date.getDate());
+    console.log(date.getHours());
+    console.log(date.getMinutes());
+    console.log(date.getSeconds());
+    console.log(date.getTime());
+</script>
+
+</html>

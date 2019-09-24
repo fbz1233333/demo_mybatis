@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.define('StudentDataModel',{
+           extend:'Ext.data.Model',
+           fields:[
+               {name:'name',mapper:'name'},
+               {name:'age',mapper:'age'},
+               {name:'marks',mapper:'marks'}
+           ]
+        });
+
+        Ext.onReady(function () {
+            var myData=[
+                {name:"Asha",age:"16",marks:"90"},
+                {name:"vinti",age:"18",marks:"95"}
+            ];
+            var gridStore=Ext.create('Ext.data.Store',{
+                model:'StudentDataModel',
+                data:myData
+            });
+
+            Ext.create('Ext.grid.Panel',{
+                id:'girdId',
+                store:gridStore,
+                // stripeRows:true,
+                title:'Student Grid',
+                renderTo:'gridDiv',
+                width:600,
+                // collapsible:true,
+                // enableColumnMove:true,
+                // enableColumnResize:true,
+                columns:
+                    [{
+                        header:'Stuent Nmae',
+                        dataIndex:'name',
+                        id:'name',
+                        // flex:1
+                        // sortable:true,
+                        // hideable:true
+                    },{
+                        header:'Age',
+                        dataIndex:'age',
+                        flex:.5
+                        // sortable:true,
+                        // hideable:true
+                    },{
+                        header:"marks",
+                        dataIndex:'marks',
+                        flex:.5,
+                        // sortable:true
+                    }]
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="gridDiv"></div>
+</body>
+</html>

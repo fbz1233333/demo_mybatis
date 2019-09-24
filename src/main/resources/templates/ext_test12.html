@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.define('StudentModel',{
+            extend:'Ext.data.Model' ,
+            fields: [
+                {name:'name',mapping:'name'},
+                {name:'age',mapping:'age'},
+                {name:'marks',mapping:'marks'}]
+        });
+        Ext.onReady(function () {
+            var myData=[
+                {name:'Ash',age:"20",marks:"91"},
+                {name:'Ash',age:"20",marks:"91"},
+                {name:'Ash',age:"20",marks:"91"},
+                {name:'Ash',age:"20",marks:"91"},
+                {name:'Ash',age:"20",marks:"91"}]  ;
+            var gridStore=Ext.create('Ext.data.Store',{
+                model:'StudentModel',
+                data:myData
+            });
+            Ext.create('Ext.grid.Panel',{
+                id:'gridId',
+                store:gridStore,
+                stripeRows:true,
+                title:'Student Grid',
+                renderTo:'gridDiv',
+                width:600,
+                collapsible:true,
+                enableColumnMove  :true,
+                enableColumnResize:true,
+                columns:[{
+                    header:"Student Name",
+                    dataIndex:'name',
+                    id:'name',
+                    flex:1,
+                    sortable:true,
+                    hideable:true
+                },{
+                    header:"Age",
+                    dataIndex:'age',
+                    flex:.5,
+                    sortable:true,
+                    hideable:false
+                },{
+                    sortable:true,
+                    hideable:true,
+                    flex:.5,
+                    dataIndex:'marks',
+                    header:"Marks"
+                }]
+            })
+        })
+    </script>
+</head>
+<body>
+<div id = "gridDiv"></div>
+</body>
+</html>

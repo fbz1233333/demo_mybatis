@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script th:src="@{/js/ext-all.js}"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.define('dataModel',{
+                extend:'Ext.data.Model',
+                fields:[
+                    {name:'uId',mapping:'uId'},
+                    {name:'uName',mapping:'uName'},
+                    {name:'uPass',mapping:'uPass'},
+                    {name:'uAge',mapping:'uAge'}
+                ]
+            }) ;
+      // alert(mydata);
+
+            
+            //1.调用ajax
+            var result;
+            Ext.Ajax.request({
+                method:'POST',
+                url:'user/getUsers',
+                params:{},
+                async:false,
+                success:function (response,options) {
+
+                    //伟大的胜利，成功地取出了ajax返回的值
+                    result= JSON.parse(response.responseText);
+                    // alert(result)
+                }
+            });
+
+
+            var gridStore=Ext.create('Ext.data.Store',{
+                model:'dataModel',
+                data:result
+            });
+            Ext.create('Ext.grid.Panel',{
+                
+                store:gridStore,
+                title:'myTitle',
+                renderTo:'div2',
+                width:600,
+                columns:
+                    [{
+                        header:'uId',
+                        dataIndex:'uId',
+                        flex:.5
+                    },{
+                        header:'userName',
+                        dataIndex:'uName',
+                        flex:.5
+                    },{
+                        header:'userPass',
+                        dataIndex:'uPass',
+                        flex:.5
+                    },{
+                        header:'uAge',
+                        dataIndex:'uAge',
+                        flex:.5
+                    }]
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js" th:src="@{/js/ext-all.js}"></script>
+    <script>
+        Ext.onReady(function () {
+           var btn2= Ext.create('Ext.Button',{
+                text:'btn2',
+                id:'btn2_id',
+                renderTo:Ext.getBody(),
+                listeners:{
+                    click:function () {
+                        window.location.href="ext_btn1"
+                    }
+                }
+            });
+            document.getElementById('btn2_id').click();
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>

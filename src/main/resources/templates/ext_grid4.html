@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js" th:src="@{/js/ext-all.js}"></script>
+    <script>
+        function getJSONObject(url,params){
+            var result;
+            Ext.Ajax.request({
+                method:'POST',
+                params:params,
+                async:false,
+                url:url,
+                success:function (response) {
+                    result=JSON.parse(response.responseText);
+                }
+            }) ;
+            return result;
+        }
+        Ext.onReady(function () {
+            var url="user/getUsers";
+            var params={};
+            var result=getJSONObject(url,params);
+            console.log(result[0].uName);
+            
+            Ext.create('Ext.Button',{
+                text:'btnx',
+                id:'btnx_id',
+                itemId:'btnx_itemId',
+                renderTo:Ext.getBody()
+            });
+            console.log(Ext.getElementById('btnx_id').text);
+        })
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

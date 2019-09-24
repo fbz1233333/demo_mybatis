@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.container.Container',{
+                renderTo:Ext.getBody(),
+                layout:{
+                    type:'fit'
+                },
+                width:1500,
+                defaults:{
+                    bodyPadding:15
+                }               ,
+                items:[{
+                    title: 'Panel1',
+                    html : 'This is panel 1'
+                },{
+                    title: 'Panel2',
+                    html : 'This is panel 2'
+                },{
+                    title: 'Panel3',
+                    html : 'This is panel 3'
+                },{
+                    title: 'Panel4',
+                    html : 'This is panel 4'
+                }]
+            })
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

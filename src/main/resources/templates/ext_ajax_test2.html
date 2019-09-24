@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js" th:src="@{/js/ext-all.js}"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.define('MangaModel',{
+                extend:'Ext.data.Model',
+                fields:[
+                    {name:'mId',mapper:'mId'},
+                    {name:'mName',mapper:'mName'},
+                    {name:'mDesc',mapper:'mDesc'},
+                    {name:'mTime',mapper:'mTime'},
+                    {name:'mDir',mapper:'mDir'},
+                    {name:'mUid',mapper:'mUid'}
+                    ]
+            });
+            var result;
+            Ext.Ajax.request({
+                method:'POST',
+                url:"manga/getMangas",
+                params:{},
+                async:false,
+                success:function (response) {
+                    result=JSON.parse(response.responseText);
+                }
+            });
+            var store1=Ext.create('Ext.data.Store',{
+                model:'MangaModel',
+                data: result
+            });
+            Ext.create('Ext.grid.Panel',{
+                store:store1,
+                width:1000,
+                title:'test2',
+                renderTo:'div222',
+                columns:[{
+                    header:'ID',
+                    dataIndex:'mId',
+                    flex:.5
+                },{
+                    header:'NAME',
+                    dataIndex:'mName',
+                    flex:.5
+                },{
+                    header:'DESC',
+                    dataIndex:'mDesc',
+                    flex:1
+                },{
+                    header:'DIRECTORY',
+                    dataIndex:'mDir',
+                    flex:.5
+                }]
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="div222"></div>
+</body>
+</html>

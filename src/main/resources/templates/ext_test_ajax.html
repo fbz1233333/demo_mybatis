@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js" th:src="@{/js/ext-all.js}"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.Button',{
+                renderTo:Ext.getElementById('div1'),
+                text:'ajax提交'
+
+            });
+            Ext.Ajax.request({
+                method:'POST',
+                url:'user/getUsers',
+                params:{},
+                success:function (response,options) {
+
+                    //伟大的胜利，成功地取出了ajax返回的值
+                    var resultObject = eval('('+response.responseText+')');
+                    Ext.MessageBox.alert('title',resultObject[3].uName)
+                }
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <p>这是ajax</p>
+    <div id="div1"></div>
+</body>
+</html>

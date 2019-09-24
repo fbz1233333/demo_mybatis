@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+  <script>
+      Ext.onReady(function () {
+          win=new Ext.Window({
+              title:'Email Window',
+              layout:'form',
+              width:400,
+              closeAction:'close',
+              target:document.getElementById('buutonId'),
+              plain:true,
+              items:[{
+                  xtype:'textfield',
+                  fieldLabel:'To'
+              },{
+                  xtype:'textfield',
+                  fieldLabel:'BBC'
+              },{
+                  xtype:'textfield',
+                  fieldLabel:'Subjict'
+              },{
+                  xtype:'textarea',
+                  fieldLabel:'Email Message'
+              }]   ,
+              buttons:[{
+                  text:'Sava Draft',
+                  handler:function () {
+                      Ext.Msg.alert('Saba','is saved');
+                  }
+              },{
+                  text:'Send',
+                  handler:function () {
+                      Ext.Msg.alert('Messas',"dd");
+                  }
+              }],
+              buttonAlign:'center'
+          });
+          Ext.create('Ext.Button',{
+              renderTo:Ext.getElementById('buttonId'),
+              text:'click me',
+              listeners:{
+                  click:function () {
+                      win.show();
+                  }
+              }
+          })
+      })
+  </script>
+</head>
+<body>
+<p> Click the button to see window </p>
+<div id = "buttonId"></div>
+</body>
+</html>

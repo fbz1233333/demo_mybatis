@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.form.Panel',{
+                id:'NewForm',
+                renderTo:'formId',
+                border:true,
+                width:600,
+                items:[{
+                    itemIdl:"jdjd",
+                    xtype:'textfield',
+                    fieldLabel:'Text Field'
+                },{
+                    xtype:'displayfield',
+                    fieldLabel:'Display Field'
+                },{
+                    xtype:'textarea',
+                    fieldLabel:'Text Area'
+                }]
+            });
+            
+        })
+    </script>
+</head>
+<body>
+    <div id="formId"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.form.HtmlEditor',{
+                width:500,
+                height:250,
+                renderTo:'editorId'
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="editorId"></div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <base th:href="${#request.getContextPath()}+'/'">
+    <title>登录</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <script th:src="@{/js/jquery-3.4.1.min.js}" type="text/javascript" src="../static/js/jquery-3.4.1.min.js" ></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <style>
+        .myCon{
+            padding-top: 10px;
+        }
+        .myLoginPic{
+            padding-top: 20px;
+        }
+        .loginForm{
+            padding-top: 6px;
+        }
+    </style>
+    <script src="../static/js/myJs/checkNumForm.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <h1>FBZ,NIKANKAN!</h1>
+        <p>Welcome,your visitors.Welcome,your visitors.Welcome,your visitors.Welcome,your visitors.Welcome,your visitors.Welcome,your visitors.Welcome,your visitors.Welcome,your visitors.</p>
+        <p><a class="btn btn-primary btn-lg" href="https://v3.bootcss.com/examples/jumbotron/#" role="button">Learn more »</a></p>
+    </div>
+</div>
+
+
+
+<div class="container myCon">
+    <div class="media">
+        <div class="media-body">
+            <div class="col-sm-7">
+                <img src="../static/img/img3.png" height="400" class="myLoginPic"
+                th:src="@{/img/img3.png}" />
+            </div>
+
+            <div class="col-sm-4">
+                <h2>登录</h2>
+                
+                <form class="form-group-lg" role="form" id="btn_form" action="user/login" th:action="@{user/login}" method="post">
+                    <div class="row">
+                    <div class="col-sm-12">
+                        <label><h5>Name</h5></label>
+                        <input type="text" class="form-control" name="uName" placeholder="name" id="uName">
+                    </div>
+                    <div class="col-sm-12">
+                        <label><h5>Password</h5></label>
+                        <input type="password" class="form-control" name="uPass" placeholder="pass" id="uPass">
+                    </div>
+
+                    <div class="col-sm-7">
+                        <label><h5>very</h5></label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label><h5>验证</h5></label>
+                    </div>
+                     </div>
+
+                       <hr>
+
+                    <div>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success btn-lg" value="登录" >
+                            <input type="button" class="btn btn-warning btn-lg" value="注册" >
+                        </div>
+
+                    </div>
+                </form>
+
+
+
+
+            </div>
+
+            
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

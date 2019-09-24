@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.panel.Panel',{
+                renderTo:Ext.getBody(),
+                layout:{
+                    type:'hbox'
+                }              ,
+                requires:['Ext.layout.container.HBox'],
+                width:600,
+                frame:true,
+                items:[{
+                    title:'Panel 1',
+                    html:'Panel with flex 1',
+                    flex: 2
+                },{
+                    title: 'Panel 2',
+                    html : 'Panel with flex 2',
+                    flex : 2
+                },{
+                    title: 'Panel 3',
+                    width: 150,
+                    html : 'Panel with width 150'
+                },{
+                    title: 'Panel 4',
+                    html : 'Panel with flex 1',
+                    flex : 1
+                }]
+            })
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

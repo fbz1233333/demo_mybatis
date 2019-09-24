@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.panel.Panel',{
+                renderTo:Ext.getBody(),
+                layout:'column',
+
+                requires:['Ext.layout.container.Column'],  //导入控件，实现异步加载机制
+                width:600,
+                items:[{
+                    title:'First',
+                    html:'This is First Component',
+                    columnWidth: 0.3
+                },{
+                    title : 'Second Component width 40%',
+                    html : '<p> This is Second Component </p> ' +
+                        '<p> Next line for second component </p>',
+                    columnWidth : 0.40
+                },{
+                    title : 'Third Component width 30%',
+                    html : 'This is Third Component' ,
+                    columnWidth : 0.30
+                }]
+            })
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

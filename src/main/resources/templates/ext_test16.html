@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.Button',{
+                renderTo:Ext.getElementById('btn3'),
+                text:'Click me',
+                listeners:{
+                    click:function () {
+                        Ext.Msg.prompt('Name','Please enter your name:',function (btn, text) {
+                            if (btn == 'ok') {
+                                Ext.Msg.alert('Hello','Hello'+text);
+                            }
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="btn3"></div>
+</body>
+</html>

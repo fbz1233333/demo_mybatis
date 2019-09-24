@@ -1,0 +1,21 @@
+<html>
+<head>
+    <link href="https://cdn.bootcss.com/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet">
+    <script src="../static/js/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function() {
+            Ext.create('Ext.Panel', {
+                renderTo: 'helloWorldPanel',
+                height: 100,
+                width: 200,
+                title: 'Hello world',
+                html: 'First Ext JS Hello World Program'
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div id="helloWorldPanel"></div>
+</body>
+</html>

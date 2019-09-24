@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <base th:href="${#request.getContextPath()}+'/'">
+    <title>index</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <script th:src="@{/js/jquery-3.4.1.min.js}" type="text/javascript" src="../static/js/jquery-3.4.1.min.js" ></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <style>
+        .myCon{
+            padding-top: 70px;
+        }
+        .myBot{
+            padding-bottom: 200px;
+        }
+        .myCol>ul>li>a{
+            font-size: 20px;
+        }
+        .loginForm{
+            padding-top: 6px;
+        }
+        .hot.active{
+            background: green;
+
+        }
+        .over.active{
+            background-color: coral;
+        }
+        .myList{
+            padding-top: 20px;
+        }
+        .myHis{
+            padding-top: 20px;
+
+        }
+        .myHis a{
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="nav navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">fbzTest</a>
+        </div>
+        <div class="navbar-collapse collapse myCol">
+            <ul class="navbar-nav nav">
+                <li><a href="manga/mangalist" th:href="@{manga/mangalist}">漫画列表</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li class="navbar-collapse collapse pull-right" >
+                    <form class="form-inline pull-right loginForm" method="post" action="#" th:if="${session.loginUser==null}">
+                        <input type="text" class="form-control" placeholder="UserName">
+                        <input type="text" class="form-control" placeholder="UserPass">
+                        <button type="button" class="btn btn-success" >Login</button>
+                    </form>
+
+                    <a th:if="${session.loginUser!=null}" th:text="'欢迎您'+${session.loginUser.uName}" th:href="@{/user/myInfo/{id}(id=${session.loginUser.uId})}"></a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+</nav>
+
+
+
+
+<div class="container myCon">
+
+
+    <div class="col-sm-7">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                    <img alt="First slide [1140x500]" src="../static/img/W27U1KT1TPPXS@DWM1E%7D3PP.png"
+                         th:src="@{/img/img1.png}"
+                         data-holder-rendered="true">
+                </div>
+                <div class="item active">
+                    <img alt="Second slide [1140x500]" src="../static/img/%7BNDFX39IU)Z(G)BFVK9%7DE_3.png" data-holder-rendered="true"
+                         th:src="@{/img/img4.png}"
+                    >
+                </div>
+                <div class="item">
+                    <img alt="Third slide [1140x500]" src="../static/img/W27U1KT1TPPXS@DWM1E%7D3PP.png" data-holder-rendered="true"
+                         th:src="@{/img/img5.png}">
+                </div>
+
+            </div>
+            <a class="left carousel-control" href="https://v3.bootcss.com/examples/theme/#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="https://v3.bootcss.com/examples/theme/#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div class="col-sm-12">
+            <h4>News</h4>
+        </div>
+
+
+        <ul style="font-size: 22px">
+            <li><a href="#">某人又发表知名言论，称XXX必将XXX某人又发表知名言论，称XXX必将XXX某人又发表知名言论，称XXX必将XXX</a></li>
+            <li><a href="#"> 某人又发表知名言论，称XXX必将XXX</a></li>
+            <li><a href="#"> 某人又发表知名言论，称XXX必将XXX</a></li>
+            <li><a href="#"> 某人又发表知名言论，称XXX必将XXX</a></li>
+            <li><a href="#"> 某人又发表知名言论，称XXX必将XXX</a></li>
+            <li><a href="#"> 某人又发表知名言论，称XXX必将XXX</a></li>
+            <li><a href="#"> 某人又发表知名言论，称XXX必将XXX</a></li>
+            <li><a href="#"> 某人又发表知名言论，称XXX必将XXX</a></li>
+
+
+
+        </ul>
+
+
+
+    </div>
+
+    <div class="col-sm-12 myHis">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">上次看到</h3>
+            </div>
+            <div class="panel-body">
+                <a href="#">fbz</a> <a href="">doc</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-12 myList">
+        <div class="col-sm-4">
+            <ul class="list-group">
+                <li class="list-group-item active">新发布</li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <ul class="list-group">
+                <li class="list-group-item active hot">热度</li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <ul class="list-group">
+                <li class="list-group-item active over">完结</li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+                <li class="list-group-item"><a href="#">fbzs life</a> </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="col-sm-7">
+
+        <div class="collapse navbar-collapse" style="font-size: 20px" >
+
+            <ul class="navbar-nav nav">
+                <li><a href="#" style="color: black">国家</a> </li>
+                <li><a href="#">fbz</a></li>
+                <li><a href="#">fbz</a></li>
+                <li><a href="#">fbz</a></li>
+            </ul>
+        </div>
+
+
+        <div class="collapse navbar-collapse"  style="font-size: 20px">
+
+            <ul class="navbar-nav nav">
+                <li><a href="#" style="color: black">作者</a> </li>
+                <li><a href="#">fbz</a></li>
+                <li><a href="#">fbz</a></li>
+                <li><a href="#">fbz</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+
+<nav class="nav navbar-default navbar-fixed-bottom">
+    <div class="container">
+
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">fbzTest</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav nav">
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</nav>
+
+</body>
+
+<script>
+    var date=new Date();
+    console.log(date.getFullYear());
+    console.log(date.getMonth()+1) ;
+    console.log(date.getDate());
+    console.log(date.getHours());
+    console.log(date.getMinutes());
+    console.log(date.getSeconds());
+    console.log(date.getTime());
+</script>
+</html>

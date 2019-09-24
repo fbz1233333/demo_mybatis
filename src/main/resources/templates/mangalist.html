@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <script th:src="@{/js/jquery-3.4.1.min.js}" type="text/javascript" src="../static/js/jquery-3.4.1.min.js" ></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <style>
+        .myCon{
+            padding-top: 70px;
+        }
+        .myBot{
+            padding-bottom: 200px;
+        }
+        .myCol>ul>li>a{
+            font-size: 20px;
+        }
+        .loginForm{
+            padding-top: 6px;
+        }
+     
+    </style>
+
+</head>
+<body>
+<nav class="nav navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">fbzTest</a>
+        </div>
+        <div class="navbar-collapse collapse myCol">
+            <ul class="navbar-nav nav">
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+            </ul>
+            <ul>
+                <li class="navbar-collapse collapse pull-right">
+                    <form class="form-inline pull-right loginForm" method="post" action="#">
+                        <input type="text" class="form-control" placeholder="UserName">
+                        <input type="text" class="form-control" placeholder="UserPass">
+                        <button type="button" class="btn btn-success" >Login</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</nav>
+
+
+<div class="container myCon">
+    <h1>mangalist</h1>
+    <hr>
+    <div th:each="manga:${mangalist}">
+
+        <div class="media">
+            <div class="media-left">
+                <img th:src="@{/image/{dir}/pagelist/0.png(dir=${manga.getmDir()})}" class="media-object" style="width:200px;height: 250px">
+            </div>
+            <div class="media-body">
+                <h2>名称:<a th:href="@{manga/getOne/{id}(id=${manga.mId})}"><span th:text="${manga.mName}"></span></a></h2>
+                <h3><span th:text="'作者:'+${manga.getUploader().uName}"></span></h3>
+
+                <h3><p style="font-size: 24px" th:text="'简介:'+${manga.getmDesc()}"></p></h3>
+
+                <a th:if="${session.loginUser.uId==manga.getUploader().uId}" th:href="@{manga/split/{id}(id=${manga.mId})}">
+                    <button type="button" class="btn-sm btn btn-info" th:text="分集"></button>
+                </a>
+                <p class="pull-right">时间：<span th:text="${manga.getmTime()}"></span></p>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<nav class="nav navbar-default navbar-fixed-bottom">
+    <div class="container">
+
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">fbzTest</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav nav">
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</nav>
+
+</body>
+
+<script>
+    var date=new Date();
+    console.log(date.getFullYear());
+    console.log(date.getMonth()+1) ;
+    console.log(date.getDate());
+    console.log(date.getHours());
+    console.log(date.getMinutes());
+    console.log(date.getSeconds());
+    console.log(date.getTime());
+</script>
+</html>

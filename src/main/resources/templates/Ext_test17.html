@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+             Ext.create('Ext.Button',{
+                 renderTo:Ext.getElementById('btn4'),
+                 text:'Click Me',
+                 listeners:{
+                     click:function () {
+                         Ext.MessageBox.show({
+                             title:'Details',
+                             msg:'Please enter your details',
+                             width:300,
+                             buttons:Ext.MessageBox.OKCANCEL,
+                             multiline:true,
+                             fn:callbackfn
+                         }) ;
+                         function callbackfn(){
+                             Ext.Msg.alert('status','Details enters successfully');
+                         }
+                     }
+                 }
+             })
+        })
+    </script>
+</head>
+<body>
+    <div id="btn4"></div>
+</body>
+</html>

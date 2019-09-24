@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.data.Store', {
+                model: 'StudentDataModel',
+                proxy : {
+                    type : 'rest',
+                    actionMethods : {
+                        read : 'POST'  // Get or Post type based on requirement
+                    },
+                    url : 'user/getUser', // here we have to include the rest URL path which fetches data from database or Json file path where the data is stored
+                    reader: {
+                        type : 'json',  // the type of data which is fetched is of JSON type
+                        root : 'data'
+                    }
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

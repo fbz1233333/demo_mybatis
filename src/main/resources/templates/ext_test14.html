@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.Button',{
+                text:'click me',
+                renderTo:Ext.getElementById('msgBox'),
+                listeners:{
+                    click:function () {
+                        Ext.Msg.alert('Tietle','Baxixix'
+                        )
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="msgBox"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.panel.Panel',{
+              renderTo:Ext.getBody(),
+                layout:{
+                    type:'vbox',
+                    align:'stretch'
+                },
+                requires:['Ext.layout.container.VBox'],
+                width:600,
+                height:400,
+                frame:true,
+                items:[{
+                    title:'panel 1',
+                    html:'test1',
+                    flex: 1,
+                    margin:'0 0 10 0'
+                },{
+                  title:'panel 2',
+                    html:'tests2',
+                    flex:5,
+                    margin:'0 0 10 0'
+                }]
+            })
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

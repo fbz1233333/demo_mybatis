@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.Button',{
+                renderTo:'btn1',
+                text:'button1',
+                listeners:{
+                    click:function () {
+                        Ext.MessageBox.alert('t1','content1');
+                    }
+                }
+            }) ;
+            Ext.create('Ext.Button',{
+                renderTo:'btn2',
+                text:'button2',
+                listeners:{
+                    click:function () {
+                        Ext.MessageBox.alert('t2','Button 2')
+                    }
+                }
+            });
+            Ext.create('Ext.Button',{
+                renderTo:'btn3',
+                //renderTo是指在其内部创建
+                text:'button3',
+                listeners:{
+                    click:function () {
+                        Ext.MessageBox.alert('t2','Button 2')
+                    }
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+       <div id="btn1"></div>
+        <div id="btn2"></div>
+        <div id="btn3"></div>
+</body>
+</html>

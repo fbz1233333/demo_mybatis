@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.Button',{
+                renderTo:Ext.getElementById('btn2'),
+                text:'click me',
+                listeners:{
+                    click:function () {
+                        Ext.MessageBox.confirm('Confirm','Are you sure',
+                            callbackFunction);
+                        function callbackFunction(btn) {
+                            if(btn=='yes'){
+                                Ext.Msg.alert('Button Click','Yes button')
+                            }else {
+                                Ext.Msg.alert('Button Click','No button')
+                            }
+                        }
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+       <div id="btn2"></div>
+</body>
+</html>

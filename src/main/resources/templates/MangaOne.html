@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MangaOne</title>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <script th:src="@{/js/jquery-3.4.1.min.js}" type="text/javascript" src="../static/js/jquery-3.4.1.min.js" ></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <style>
+        .myCon{
+            padding-top: 70px;
+        }
+        .myBot{
+            padding-bottom: 200px;
+        }
+        .myCol>ul>li>a{
+            font-size: 20px;
+        }
+        .loginForm{
+            padding-top: 6px;
+        }
+        .but-pb{
+            padding-bottom: 20px;
+        }
+
+        .pagelist li{
+            list-style-type: none;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="nav navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">fbzTest</a>
+        </div>
+        <div class="navbar-collapse collapse myCol">
+            <ul class="navbar-nav nav">
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+                <li><a href="#">fbz1</a></li>
+            </ul>
+            <ul>
+                <li class="navbar-collapse collapse pull-right">
+                    <form class="form-inline pull-right loginForm" method="post" action="#">
+                        <input type="text" class="form-control" placeholder="UserName">
+                        <input type="text" class="form-control" placeholder="UserPass">
+                        <button type="button" class="btn btn-success" >Login</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</nav>
+
+
+<div class="container myCon">
+    <h2>mangaOne</h2>
+    <hr>
+    <div class="media">
+        <div class="media-left">
+            <img src="../static/img/Z(UO7%7BIO1Z%7B_31%250SM%250$%7D0.png" class="media-object" style="width:200px;height: 250px">
+        </div>
+        <div class="media-body">
+            <h1>名称  <small>作者:</small></h1>
+
+            <p style="font-size: 24px">Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,
+                Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,Fbz is lihai,</p>
+            <p class="pull-right">时间：</p>
+        </div>
+    </div>
+
+    <h2>页面表</h2>
+    <hr>
+    <ul class="row pagelist">
+        <li class="col-sm-3 but-pb">
+            <a href="PageOne.html"><button type="button" class="btn btn-success btn-lg">第1页</button></a>
+        </li>
+        <li class="col-sm-3 but-pb">
+        <a href="PageOne.html"><button type="button" class="btn btn-success btn-lg">第1页</button></a>
+    </li>  <li class="col-sm-3 but-pb">
+        <a href="PageOne.html"><button type="button" class="btn btn-success btn-lg">第1页</button></a>
+    </li>  <li class="col-sm-3 but-pb">
+        <a href="PageOne.html"><button type="button" class="btn btn-success btn-lg">第1页</button></a>
+    </li>
+
+    </ul>
+
+
+
+
+
+</div>
+
+<nav class="nav navbar-default navbar-fixed-bottom">
+    <div class="container">
+
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">fbzTest</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav nav">
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                    <li><a href="#">fbz1</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</nav>
+
+</body>
+
+<script>
+    var date=new Date();
+    console.log(date.getFullYear());
+    console.log(date.getMonth()+1) ;
+    console.log(date.getDate());
+    console.log(date.getHours());
+    console.log(date.getMinutes());
+    console.log(date.getSeconds());
+    console.log(date.getTime());
+</script>
+</html>

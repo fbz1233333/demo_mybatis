@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js" ></script>
+    <script th:src="@{/js/ext-all.js}"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.define('dataModel',{
+                extend:'Ext.data.Model' ,
+                fields:[
+                    {name:'uId',mapper:'uId'},
+                    {name:'uName',mapper:'uName'},
+                    {name:'uPass',mapper:'uPass'},
+                    {name:'uAge',mapper:'uAge'}
+                    ]
+            });
+            var result;
+            Ext.Ajax.request({
+                method:'POST',
+                params:{},
+                async:false,
+                url:'user/getUsers',
+                success:function (response) {
+                    result=JSON.parse(response.responseText);
+                }                            
+            }) ;
+            var gridStore=Ext.create('Ext.data.Store',{
+                model:'dataModel',
+                data:result
+            })    ;
+            Ext.create('Ext.grid.Panel',{
+
+                store:gridStore,
+                title:'myTitle',
+                renderTo:'div2',
+                width:600,
+                columns:
+                    [{
+                        header:'uId',
+                        dataIndex:'uId',
+                        flex:.5
+                    },{
+                        header:'userName',
+                        dataIndex:'uName',
+                        flex:.5
+                    },{
+                        header:'userPass',
+                        dataIndex:'uPass',
+                        flex:.5
+                    },{
+                        header:'uAge',
+                        dataIndex:'uAge',
+                        flex:.5
+                    }]
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="div2"></div>
+</body>
+</html>

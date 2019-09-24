@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+          rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/ext-all.js" th:src="@{/js/ext-all.js}"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.define('StudentDataModel', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    {name: 'name', mapping : 'name'},
+                    {name: 'age', mapping : 'age'},
+                    {name: 'marks', mapping : 'marks'}
+                ]
+            });
+            var myStore=Ext.create('Ext.data.Store', {
+                model: 'StudentDataModel',
+                data: [
+                    { name : "Asha", age : "16", marks : "90" },
+                    { name : "Vinit", age : "18", marks : "95" },
+                    { name : "Anand", age : "20", marks : "68" },
+                    { name : "Niharika", age : "21", marks : "86" },
+                    { name : "Manali", age : "22", marks : "57" }
+                ]
+            });
+            //定位第几个
+            // alert(myStore.getAt(0).get('name'));
+
+            //循环
+            // myStore.each(function (record) {
+            //     alert(record.get('name')) ;
+            // })
+
+            //截取 部分
+            // var records=myStore.getRange(0,1);
+            // for (var i=0;i<records.length;i++){
+            //     var record=records[i];
+            //     alert(record.get('name')) ;
+            //     alert(record.get('id')) ;
+            // }
+
+            //根据id
+            // var record=myStore.getById('StudentDataModel-2');
+            // alert(record.get('name'))
+
+            //根据name
+            // var index=myStore.find('name','Asha') ;
+            // alert(myStore.getAt(index).get('name')) ;
+
+            //类似于select语句
+            // var index=myStore.findBy(function (record, id) {
+            //     return record.get('name')=='Asha' && record.get('age')=='16';
+            // }) ;
+            // alert(myStore.getAt(index).get('name'))
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>
